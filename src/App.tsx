@@ -1,16 +1,14 @@
-import { ChakraProvider, Flex} from '@chakra-ui/react';
+import { ChakraProvider} from '@chakra-ui/react';
 import AvatarUI from './components/Avatar/Avatar';
 import theme from './theme/Theme';
+import * as S from './styles';
+
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Flex
-        bgColor={'#171717'}
-        width='100%'
-        height='100%'
-      >
+      <S.FlexStyled>
         <AvatarUI />
-      </Flex>
+      </S.FlexStyled>
     </ChakraProvider>
   );
 }
