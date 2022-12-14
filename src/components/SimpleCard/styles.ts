@@ -6,6 +6,8 @@ export const CardStyled = styled(Card)`
   border-radius: 0;
   color: #535353;
   padding: 16px;
+  height: 250px;
+  width: 500px;
   :hover {
     border-bottom: 6px solid #27AE60;
     box-sizing: border-box;
@@ -15,7 +17,7 @@ export const CardStyled = styled(Card)`
 export const CardBodyStyled = styled(CardBody)`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
 `
 
 export const ImageStyled = styled(Image)`
@@ -25,4 +27,5 @@ export const ImageStyled = styled(Image)`
 export const HeadingStyled = styled(Heading)`
   font-weight: 600;
   text-align: left;
+  width: 80%;
 `
