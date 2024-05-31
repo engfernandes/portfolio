@@ -15,7 +15,7 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     variant: {
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary', 'tertiary'],
     },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
@@ -37,5 +37,12 @@ export const Secondary: Story = {
   args: {
     variant: 'secondary',
     text: 'Secondary',
+  },
+}
+
+export const Tertiary: Story = {
+  args: {
+    variant: 'tertiary',
+    text: 'Tertiary',
   },
 }

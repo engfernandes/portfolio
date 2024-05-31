@@ -4,7 +4,7 @@ import { tv } from 'tailwind-variants'
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   text: string
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'tertiary'
 }
 
 const button = tv({
@@ -15,6 +15,8 @@ const button = tv({
         'bg-primary text-gray-950 hover:bg-primary-hover transition duration-300',
       secondary:
         'bg-none text-white border-white border hover:border-opacity-80 hover:text-opacity-80 transition duration-300',
+      tertiary:
+        'bg-slate-800 text-white hover:bg-slate-700 transition duration-300',
     },
   },
   defaultVariants: {

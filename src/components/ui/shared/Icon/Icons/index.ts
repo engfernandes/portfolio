@@ -12,7 +12,6 @@ import { Folder } from './Folder'
 import { Markdown } from './Markdown'
 import { Email } from './Email'
 import { Phone } from './Phone'
-import { React } from './React'
 
 export interface IconProps extends HTMLAttributes<SVGElement> {
   width?: string
@@ -34,5 +33,4 @@ export const icons = {
   markdown: Markdown,
   email: Email,
   phone: Phone,
-  react: React,
 }
