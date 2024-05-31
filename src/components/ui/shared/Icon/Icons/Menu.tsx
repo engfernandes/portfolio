@@ -1,12 +1,6 @@
-import { HTMLAttributes } from 'react'
+import { IconProps } from '.'
 
-interface MenuProps extends HTMLAttributes<SVGElement> {
-  width?: string
-  height?: string
-  className?: string
-}
-
-export function Menu({ width, height, className, ...props }: MenuProps) {
+export function Menu({ width, height, className, ...props }: IconProps) {
   return (
     <svg
       width={width || '18'}

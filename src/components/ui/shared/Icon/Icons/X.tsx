@@ -1,12 +1,6 @@
-import { HTMLAttributes } from 'react'
+import { IconProps } from '.'
 
-interface XProps extends HTMLAttributes<SVGElement> {
-  width?: string
-  height?: string
-  className?: string
-}
-
-export function X({ width, height, className, ...props }: XProps) {
+export function X({ width, height, className, ...props }: IconProps) {
   return (
     <svg
       width={width || '16'}
