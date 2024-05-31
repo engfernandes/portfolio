@@ -3,14 +3,15 @@ import { tv } from 'tailwind-variants'
 
 interface TabsProps {
   tabsNames: string[]
+  className?: string
 }
 
 const tabsGroup = tv({
-  base: `flex flex-col items-center h-[55px] justify-start w-full sm:grid sm:grid-cols-4`,
+  base: `flex flex-col items-center h-full justify-start w-full sm:flex-row`,
 })
 
 const tabs = tv({
-  base: 'relative flex items-center p-2 h-full w-full cursor-pointer text-base text-white border border-slate-800 transition duration-200 hover:text-white sm:text-slate-500 sm:px-8',
+  base: 'relative flex items-center p-[18px] h-full w-full cursor-pointer text-base text-white border border-slate-800 transition duration-200 hover:text-white sm:text-slate-500 sm:px-8 sm:py-0',
   variants: {
     active: {
       true: 'sm:text-white',
@@ -28,7 +29,7 @@ const activeIndicator = tv({
   },
 })
 
-export function Tabs({ tabsNames }: TabsProps) {
+export function Tabs({ tabsNames, className }: TabsProps) {
   const [activeTab, setActiveTab] = useState(0)
 
   const handleClickTab = (index: number) => {
@@ -36,7 +37,7 @@ export function Tabs({ tabsNames }: TabsProps) {
   }
 
   return (
-    <div className={tabsGroup()}>
+    <div className={tabsGroup({ className: className })}>
       {tabsNames.map((tabName, index) => (
         <div
           key={index}
