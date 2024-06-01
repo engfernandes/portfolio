@@ -3,5 +3,6 @@
   "semi": false,
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
