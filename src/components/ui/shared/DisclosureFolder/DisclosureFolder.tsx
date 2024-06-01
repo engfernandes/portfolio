@@ -33,7 +33,7 @@ const disclosureButtonFolder = tv({
 })
 
 const disclosurePanel = tv({
-  base: 'px-7 py-1',
+  base: 'px-7 py-1 animate-slide-down',
 })
 
 export function DisclosureFolder({
