@@ -13,6 +13,8 @@ import { Markdown } from './Markdown'
 import { Email } from './Email'
 import { Phone } from './Phone'
 import { ArrowDown } from './ArrowDown'
+import { CaretRight } from './CaretRight'
+import { CaretDown } from './CaretDown'
 
 export interface IconProps extends HTMLAttributes<SVGElement> {
   width?: string
@@ -35,4 +37,6 @@ export const icons = {
   email: Email,
   phone: Phone,
   arrowDown: ArrowDown,
+  caretRight: CaretRight,
+  caretDown: CaretDown,
 }
