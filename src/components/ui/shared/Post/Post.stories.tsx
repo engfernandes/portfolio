@@ -27,9 +27,9 @@ const meta = {
       type: 'number',
     },
     language: {
+      options: Object.keys(Languages),
       control: {
         type: 'select',
-        options: Object.keys(Languages),
       },
     },
     createdAt: {
