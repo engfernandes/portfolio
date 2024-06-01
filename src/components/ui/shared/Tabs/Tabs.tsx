@@ -36,6 +36,8 @@ export function Tabs({ tabsNames, className }: TabsProps) {
     setActiveTab(index)
   }
 
+  /* FIXME: Corrigir estilização */
+
   return (
     <div className={tabsGroup({ className: className })}>
       {tabsNames.map((tabName, index) => (

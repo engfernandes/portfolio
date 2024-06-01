@@ -24,6 +24,7 @@ export function Disclosure({ buttonText, children }: DisclosureProps) {
   return (
     <HeadlessDisclosure>
       <DisclosureButton className={disclosureButton()}>
+        /* TODO: Adicionar funcionalidade de expandir e fechar no icone */
         <Icon name='arrowDown' />
         <p>{buttonText}</p>
       </DisclosureButton>

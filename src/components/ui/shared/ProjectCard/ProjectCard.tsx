@@ -12,7 +12,7 @@ interface ProjectCardProps {
 }
 
 const article = tv({
-  base: 'relative flex flex-col w-[290px] h-[330px] border border-slate-800 rounded-2xl',
+  base: 'relative flex flex-col w-[290px] h-[330px] border border-slate-800 rounded-2xl sm:w-[370px] sm:h-[425px]',
 })
 
 const framworkIcon = tv({
@@ -42,13 +42,18 @@ export function ProjectCard({
             objectFit: 'cover',
             borderRadius: '16px 16px 0 0',
             borderBottom: '1px solid #1e293b',
+            width: '100%',
           }}
-          className='object-cover'
         />
         <Icon name={icon} className={framworkIcon()} />
       </header>
       <main className={main()}>
-        <Typography text={description} variant='p' color='gray' />
+        <Typography
+          text={description}
+          variant='p'
+          color='gray'
+          className='truncate-multiline max-h-22'
+        />
         <div className={buttonsDiv()}>
           <a href={url} target='_blank' rel='noreferrer'>
             <Button variant='tertiary' text='view-project' />
