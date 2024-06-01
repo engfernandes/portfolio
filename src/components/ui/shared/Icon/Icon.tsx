@@ -34,8 +34,8 @@ export function Icon({
 
   return (
     <div className={iconDiv()}>
-      {label && <p className={labelText()}>{label}</p>}
       <Icon width={width} height={height} className={className} {...props} />
+      {label && <p className={labelText()}>{label}</p>}
     </div>
   )
 }

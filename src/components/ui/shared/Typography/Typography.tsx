@@ -18,7 +18,7 @@ const typography = tv({
     },
     color: {
       white: 'text-slate-200',
-      blue: 'text-indigo-600',
+      blue: 'text-indigo-500',
       green: 'text-emerald-400',
       red: 'text-rose-400',
       gray: 'text-slate-500',
@@ -34,13 +34,18 @@ export function Typography({
   text,
   variant,
   color,
+  className,
   ...props
 }: TypographyProps) {
   const Component = variant
 
   return (
     <Component
-      className={typography({ size: variant, color: color })}
+      className={typography({
+        size: variant,
+        color: color,
+        className: className,
+      })}
       {...props}
     >
       {text}

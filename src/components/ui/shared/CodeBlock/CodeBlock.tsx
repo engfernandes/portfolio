@@ -22,7 +22,7 @@ export function CodeBlock({ language, children }: CodeBlockProps) {
           background: 'transparent',
           padding: 0,
           margin: 0,
-          width: '100%',
+          width: 'fit-content',
           overflow: 'hidden',
         }}
       >
@@ -31,5 +31,3 @@ export function CodeBlock({ language, children }: CodeBlockProps) {
     </div>
   )
 }
-
-export default CodeBlock

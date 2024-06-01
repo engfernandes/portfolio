@@ -1,0 +1,17 @@
+export enum Languages {
+  javascript = 'javascript',
+  typescript = 'typescript',
+  html = 'html',
+  css = 'css',
+  python = 'python',
+  java = 'java',
+  c = 'c',
+  csharp = 'c#',
+  go = 'go',
+  rust = 'rust',
+  swift = 'swift',
+  dart = 'dart',
+  kotlin = 'kotlin',
+  php = 'php',
+  ruby = 'ruby',
+}
