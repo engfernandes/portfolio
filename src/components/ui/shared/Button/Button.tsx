@@ -5,6 +5,7 @@ import { tv } from 'tailwind-variants'
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   text: string
   variant?: 'primary' | 'secondary' | 'tertiary'
+  className?: string
 }
 
 const button = tv({
@@ -24,9 +25,12 @@ const button = tv({
   },
 })
 
-export function Button({ text, variant, ...props }: ButtonProps) {
+export function Button({ text, variant, className, ...props }: ButtonProps) {
   return (
-    <HeadlessButton className={button({ color: variant })} {...props}>
+    <HeadlessButton
+      className={button({ color: variant, className })}
+      {...props}
+    >
       {text}
     </HeadlessButton>
   )

@@ -15,6 +15,7 @@ import { Phone } from './Phone'
 import { ArrowDown } from './ArrowDown'
 import { CaretRight } from './CaretRight'
 import { CaretDown } from './CaretDown'
+import { React } from './React'
 
 export interface IconProps extends HTMLAttributes<SVGElement> {
   width?: string
@@ -39,4 +40,5 @@ export const icons = {
   arrowDown: ArrowDown,
   caretRight: CaretRight,
   caretDown: CaretDown,
+  react: React,
 }
