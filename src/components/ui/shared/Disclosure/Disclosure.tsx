@@ -3,7 +3,7 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react'
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import { tv } from 'tailwind-variants'
 import { Icon } from '../Icon'
 
@@ -17,15 +17,23 @@ const disclosureButton = tv({
 })
 
 const disclosurePanel = tv({
-  base: 'flex flex-col items-start justify-start w-full p-2 text-base text-slate-500 border-b border-slate-800',
+  base: 'flex flex-col items-start justify-start w-full p-2 text-base text-slate-500 border-b border-slate-800 animate-slide-down',
 })
 
 export function Disclosure({ buttonText, children }: DisclosureProps) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleClickOpen = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <HeadlessDisclosure>
-      <DisclosureButton className={disclosureButton()}>
-        /* TODO: Adicionar funcionalidade de expandir e fechar no icone */
-        <Icon name='arrowDown' />
+      <DisclosureButton
+        className={disclosureButton()}
+        onClick={handleClickOpen}
+      >
+        <Icon name={isOpen ? 'arrowDown' : 'arrowRight'} />
         <p>{buttonText}</p>
       </DisclosureButton>
       <DisclosurePanel className={disclosurePanel()}>

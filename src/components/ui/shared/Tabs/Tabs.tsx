@@ -7,7 +7,7 @@ interface TabsProps {
 }
 
 const tabsGroup = tv({
-  base: `flex flex-col items-center h-full justify-start w-full sm:flex-row`,
+  base: `flex flex-col items-center h-[55px] justify-start w-full sm:flex-row`,
 })
 
 const tabs = tv({
@@ -35,8 +35,6 @@ export function Tabs({ tabsNames, className }: TabsProps) {
   const handleClickTab = (index: number) => {
     setActiveTab(index)
   }
-
-  /* FIXME: Corrigir estilização */
 
   return (
     <div className={tabsGroup({ className: className })}>
