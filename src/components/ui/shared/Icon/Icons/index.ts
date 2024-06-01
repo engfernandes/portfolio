@@ -17,6 +17,7 @@ import { CaretRight } from './CaretRight'
 import { CaretDown } from './CaretDown'
 import { React } from './React'
 import { ArrowRight } from './ArrowRight'
+import { Checkmark } from './Checkmark'
 
 export interface IconProps extends HTMLAttributes<SVGElement> {
   width?: string
@@ -43,4 +44,5 @@ export const icons = {
   caretRight: CaretRight,
   caretDown: CaretDown,
   react: React,
+  checkmark: Checkmark,
 }

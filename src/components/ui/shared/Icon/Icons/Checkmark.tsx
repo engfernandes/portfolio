@@ -1,0 +1,19 @@
+import { IconProps } from '.'
+
+export function Checkmark({ className }: IconProps) {
+  return (
+    <svg
+      width='13'
+      height='10'
+      viewBox='0 0 13 10'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      className={className}
+    >
+      <path
+        d='M4.88574 7.56402L11.4717 0.977402L12.4855 1.99051L4.88574 9.59024L0.32605 5.03054L1.33916 4.01744L4.88574 7.56402Z'
+        fill='white'
+      />
+    </svg>
+  )
+}
