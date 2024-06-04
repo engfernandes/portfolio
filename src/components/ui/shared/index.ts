@@ -1,5 +1,0 @@
-export * from './Button/Button'
-export * from './Typography/Typography'
-export * from './Header'
-export * from './Icon'
-export * from './Tabs'
