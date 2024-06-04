@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { tv } from 'tailwind-variants'
 
 const checkbox = tv({
-  base: 'flex items-center justify-center size-4 h-5 w-5 rounded border border-slate-500 bg-slate-900 data-[checked]:bg-slate-500 outline-none',
+  base: 'flex items-center justify-center size-4 h-5 w-5 rounded border border-slate-500 bg-slate-900 data-[checked]:bg-slate-500 outline-none cursor-pointer',
 })
 
 const checkmark = tv({
