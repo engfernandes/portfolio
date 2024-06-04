@@ -1,6 +1,6 @@
 import { Typography } from '@/components'
 
-export function HighlightedText() {
+export function HighlightText() {
   return (
     <main className='flex flex-col gap-20'>
       <div className='flex flex-col flex-wrap gap-2'>
