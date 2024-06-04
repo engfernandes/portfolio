@@ -10,8 +10,8 @@ interface TypographyProps extends HTMLAttributes<HTMLParagraphElement> {
 const typography = tv({
   variants: {
     size: {
-      h1: 'font-light text-[62px]',
-      h2: 'font-regular text-[32px]',
+      h1: 'font-light text-6xl sm:text-[62px]',
+      h2: 'font-regular text-xl sm:text-[32px]',
       h3: 'font-regular text-lg',
       p: 'text-base',
       span: 'text-base',
