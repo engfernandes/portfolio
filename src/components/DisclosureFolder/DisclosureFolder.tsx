@@ -3,15 +3,16 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react'
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
 import { tv } from 'tailwind-variants'
 import { Icon } from '../Icon'
 import { FolderColor } from '@/enums'
+import { icons } from '../Icon/Icons'
 
 interface DisclosureFolderProps {
   folderColor: 'red' | 'green' | 'blue'
   buttonText: string
-  children: ReactNode
+  items: { icon: keyof typeof icons; title: string; onClick?: () => void }[]
 }
 
 const disclosureButton = tv({
@@ -39,7 +40,7 @@ const disclosurePanel = tv({
 export function DisclosureFolder({
   folderColor,
   buttonText,
-  children,
+  items,
 }: DisclosureFolderProps) {
   const [isActive, setIsActive] = useState(false)
 
@@ -63,7 +64,12 @@ export function DisclosureFolder({
         </div>
       </DisclosureButton>
       <DisclosurePanel className={disclosurePanel()}>
-        {children}
+        {items.map(({ icon, title, onClick }) => (
+          <div className='flex gap-2' onClick={onClick}>
+            <Icon name={icon} />
+            <p className='text-slate-500'>{title}</p>
+          </div>
+        ))}
       </DisclosurePanel>
     </HeadlessDisclosure>
   )

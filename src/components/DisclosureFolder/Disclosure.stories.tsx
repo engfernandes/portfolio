@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { DisclosureFolder } from './DisclosureFolder'
-import { Icon } from '../Icon'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -14,7 +13,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    children: {},
+    items: {},
     buttonText: {
       type: 'string',
     },
@@ -29,19 +28,14 @@ type Story = StoryObj<typeof meta>
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Main: Story = {
   args: {
-    children: (
-      <html>
-        <div className='flex gap-2'>
-          <Icon name='markdown' />
-          <p className='text-slate-500'>high-school</p>
-        </div>
-        <div className='flex gap-2'>
-          <Icon name='markdown' />
-          <p className='text-slate-500'>university</p>
-        </div>
-      </html>
-    ),
     buttonText: 'education',
     folderColor: 'red',
+    items: [
+      {
+        title: 'high-school',
+        icon: 'markdown',
+        onClick: () => {},
+      },
+    ],
   },
 }
