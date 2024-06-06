@@ -19,6 +19,8 @@ import { React } from './React'
 import { ArrowRight } from './ArrowRight'
 import { Checkmark } from './Checkmark'
 import { SimpleReactLogo } from './SimpleReactLogo'
+import { SimpleAngularLogo } from './SimpleAngularLogo'
+import { SimpleVueLogo } from './SimpleVueLogo'
 
 export interface IconProps extends HTMLAttributes<SVGElement> {
   width?: string
@@ -47,4 +49,6 @@ export const icons = {
   react: React,
   checkmark: Checkmark,
   simpleReactLogo: SimpleReactLogo,
+  simpleAngularLogo: SimpleAngularLogo,
+  simpleVueLogo: SimpleVueLogo,
 }

@@ -6,7 +6,6 @@ import {
 import { useState } from 'react'
 import { tv } from 'tailwind-variants'
 import { Icon } from '../Icon'
-import { FolderColor } from '@/enums'
 import { icons } from '../Icon/Icons'
 
 interface DisclosureFolderProps {
@@ -37,6 +36,17 @@ const disclosurePanel = tv({
   base: 'px-7 py-1 animate-slide-down',
 })
 
+const folderIcon = tv({
+  base: '[&>path]:fill-rose-400',
+  variants: {
+    color: {
+      red: '[&>path]:fill-rose-400',
+      green: '[&>path]:fill-emerald-400',
+      blue: '[&>path]:fill-indigo-800',
+    },
+  },
+})
+
 export function DisclosureFolder({
   folderColor,
   buttonText,
@@ -53,13 +63,10 @@ export function DisclosureFolder({
       <DisclosureButton onClick={handleClick} className={disclosureButton()}>
         <Icon
           name={isActive ? 'caretDown' : 'caretRight'}
-          className={`[&>path]:text-${FolderColor[folderColor]}`}
+          className='[&>path]:fill-slate-500'
         />
         <div className={disclosureButtonFolder({ active: isActive })}>
-          <Icon
-            name='folder'
-            className={`[&>path]:text-${FolderColor[folderColor]}`}
-          />
+          <Icon name='folder' className={folderIcon({ color: folderColor })} />
           <p>{buttonText}</p>
         </div>
       </DisclosureButton>
