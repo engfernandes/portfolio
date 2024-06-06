@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode } from 'react'
 import { Icon } from '../Icon'
 import { Typography } from '../Typography'
 import { tv } from 'tailwind-variants'
@@ -6,6 +6,8 @@ import { tv } from 'tailwind-variants'
 interface ContentTabProps {
   tabTitle: string
   children: ReactNode
+  isOpen?: boolean
+  onClose?: () => void
 }
 
 const mainDiv = tv({
@@ -20,13 +22,12 @@ const childrenWrapper = tv({
   base: 'flex h-full w-full overflow-y-auto border-t border-slate-800',
 })
 
-export function ContentTab({ tabTitle, children }: ContentTabProps) {
-  const [isOpen, setIsOpen] = useState(true)
-
-  function handleClickClose() {
-    setIsOpen(false)
-  }
-
+export function ContentTab({
+  tabTitle,
+  children,
+  isOpen = true,
+  onClose,
+}: ContentTabProps) {
   return (
     <div className={mainDiv()}>
       <div className={tabWrapper()}>
@@ -35,7 +36,7 @@ export function ContentTab({ tabTitle, children }: ContentTabProps) {
           name='x'
           width='12'
           height='12'
-          onClick={handleClickClose}
+          onClick={onClose}
           className='cursor-pointer hover:[&>path]:fill-slate-300 hover:[&>path]:transition hover:[&>path]:duration-300'
         />
       </div>
