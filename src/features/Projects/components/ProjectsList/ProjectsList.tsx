@@ -2,7 +2,7 @@ import { ProjectCard, ProjectTitle } from '@/components'
 import { icons } from '@/components/Icon/Icons'
 import { tv } from 'tailwind-variants'
 
-interface ProjectsLitsProps {
+export interface ProjectsListProps {
   projects: {
     title: string
     image: string
@@ -21,7 +21,7 @@ const div = tv({
   base: 'flex flex-col justify-start gap-4',
 })
 
-export function ProjectsList({ projects }: ProjectsLitsProps) {
+export function ProjectsList({ projects }: ProjectsListProps) {
   return (
     <main className={main()}>
       {projects.map(
