@@ -1,24 +1,45 @@
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import { Icon } from '../Icon'
 import { Typography } from '../Typography'
-import { ContentTabText } from '../ContentTabText/ContentTabText'
+import { tv } from 'tailwind-variants'
 
 interface ContentTabProps {
   tabTitle: string
   children: ReactNode
 }
 
+const mainDiv = tv({
+  base: 'flex h-full w-full flex-col items-start border border-slate-800',
+})
+
+const tabWrapper = tv({
+  base: 'hidden sm:flex sm:w-52 sm:items-center sm:justify-between sm:border-r sm:border-slate-800 sm:px-4 sm:py-3',
+})
+
+const childrenWrapper = tv({
+  base: 'flex h-full w-full overflow-y-auto border-t border-slate-800',
+})
+
 export function ContentTab({ tabTitle, children }: ContentTabProps) {
+  const [isOpen, setIsOpen] = useState(true)
+
+  function handleClickClose() {
+    setIsOpen(false)
+  }
+
   return (
-    <div className='flex h-full w-full flex-col items-start border border-slate-800'>
-      <div className='hidden sm:flex sm:w-52 sm:items-center sm:justify-between sm:border-r sm:border-slate-800 sm:px-4 sm:py-3'>
+    <div className={mainDiv()}>
+      <div className={tabWrapper()}>
         <Typography text={tabTitle} variant='p' color='gray' />
-        <Icon name='x' width='12' height='12' />
+        <Icon
+          name='x'
+          width='12'
+          height='12'
+          onClick={handleClickClose}
+          className='cursor-pointer hover:[&>path]:fill-slate-300 hover:[&>path]:transition hover:[&>path]:duration-300'
+        />
       </div>
-      <div className='h-full w-full overflow-y-auto border-t border-slate-800 p-9'>
-        {typeof children === 'string' && <ContentTabText text={children} />}
-        {typeof children !== 'string' && children}
-      </div>
+      <div className={childrenWrapper()}>{isOpen && children}</div>
     </div>
   )
 }
