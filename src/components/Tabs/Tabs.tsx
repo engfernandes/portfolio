@@ -1,17 +1,17 @@
-import { useState } from 'react'
 import { tv } from 'tailwind-variants'
 
 interface TabsProps {
-  tabsNames: string[]
+  activeTab: number
+  tabs: { name: string; onClick?: () => void }[]
   className?: string
 }
 
 const tabsGroup = tv({
-  base: `flex flex-col items-center h-[55px] justify-start w-full sm:flex-row`,
+  base: `flex flex-col items-center h-[55px] justify-start w-full animate-slide-down sm:animate-none sm:flex-row`,
 })
 
-const tabs = tv({
-  base: 'relative flex items-center p-[18px] h-full w-full cursor-pointer text-base text-white border border-slate-800 transition duration-200 hover:text-white sm:text-slate-500 sm:px-8 sm:py-0',
+const tabsStyle = tv({
+  base: 'relative flex items-center p-[18px] w-full h-full cursor-pointer text-nowrap text-base text-white border border-slate-800 bg-slate-900 transition duration-200 hover:text-white sm:w-fit sm:text-slate-500 sm:px-8 sm:py-0',
   variants: {
     active: {
       true: 'sm:text-white',
@@ -29,24 +29,18 @@ const activeIndicator = tv({
   },
 })
 
-export function Tabs({ tabsNames, className }: TabsProps) {
-  const [activeTab, setActiveTab] = useState(0)
-
-  const handleClickTab = (index: number) => {
-    setActiveTab(index)
-  }
-
+export function Tabs({ activeTab, tabs, className }: TabsProps) {
   return (
     <div className={tabsGroup({ className: className })}>
-      {tabsNames.map((tabName, index) => (
+      {tabs.map(({ name, onClick }, index) => (
         <div
           key={index}
-          className={tabs({
+          className={tabsStyle({
             active: index === activeTab,
           })}
-          onClick={() => handleClickTab(index)}
+          onClick={onClick}
         >
-          <p>{tabName}</p>
+          <p>{name}</p>
           {index === activeTab && (
             <div
               className={activeIndicator({

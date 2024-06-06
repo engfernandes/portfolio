@@ -3,13 +3,14 @@ import { Tabs } from '../Tabs'
 import { Typography } from '../Typography/Typography'
 import { Icon } from '../Icon'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const header = tv({
-  base: 'flex flex-col w-full h-[55px] border border-slate-800 rounded-t-lg sm:flex-row',
+  base: 'absolute flex flex-col top-0 left-0 w-full h-[55px] bg-slate-900 border border-slate-800 rounded-t-lg sm:flex-row sm:h-[55px]',
 })
 
 const nameDiv = tv({
-  base: 'flex justify-start items-center space-x-2 w-full h-full p-[18px]',
+  base: 'flex justify-between items-center space-x-2 w-full h-full p-[18px] text-nowrap sm:w-fit',
 })
 
 const iconDiv = tv({
@@ -21,11 +22,38 @@ const closeButton = tv({
 })
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
+  const [activeTab, setActiveTab] = useState(0)
+
+  const navigate = useNavigate()
 
   const handleClickIconButton = () => {
     setIsOpen(!isOpen)
   }
+
+  const handleClickTab = (index: number, link: string) => {
+    setActiveTab(index)
+    navigate(`${link}`)
+  }
+
+  const tabs = [
+    {
+      name: '_hello',
+      onClick: () => handleClickTab(0, ''),
+    },
+    {
+      name: '_about-me',
+      onClick: () => handleClickTab(1, 'about-me'),
+    },
+    {
+      name: '_projects',
+      onClick: () => handleClickTab(2, 'projects'),
+    },
+    {
+      name: '_contact-me',
+      onClick: () => handleClickTab(3, 'contact-me'),
+    },
+  ]
 
   return (
     <header className={header()}>
@@ -39,10 +67,7 @@ export function Header() {
           />
         </div>
       </div>
-      <Tabs
-        tabsNames={['_hello', '_about-me', '_projects', '_contact-me']}
-        className='w-full'
-      />
+      {isOpen && <Tabs activeTab={activeTab} tabs={tabs} className='w-full' />}
     </header>
   )
 }

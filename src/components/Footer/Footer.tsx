@@ -4,7 +4,7 @@ import { Typography } from '../Typography'
 
 export function Footer() {
   const footer = tv({
-    base: 'flex items-center space-between w-full h-[55px] border border-slate-800 rounded-b-lg',
+    base: 'absolute flex items-center space-between bottom-0 left-0 w-full h-[55px] bg-slate-900 border border-slate-800 rounded-b-lg',
   })
 
   const leftContent = tv({

@@ -1,10 +1,13 @@
-import { ContactForm } from './features/Contact/components/ContactForm/ContactForm'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HomePage } from '@pages'
 
 function App() {
   return (
-    <div className='align-center min-w-screen flex min-h-screen justify-center gap-10 bg-slate-900 p-10'>
-      <ContactForm />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

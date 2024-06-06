@@ -2,7 +2,7 @@ import { Typography } from '@/components'
 
 export function HighlightText() {
   return (
-    <main className='flex flex-col gap-20'>
+    <main className='flex flex-col gap-y-20'>
       <div className='flex flex-col flex-wrap gap-2'>
         <Typography text='Hi all. I am' variant='h3' color='white' />
         <Typography text='Gabriel Fernandes' variant='h1' color='white' />

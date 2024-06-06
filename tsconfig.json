@@ -16,12 +16,10 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@components": [
-        "src/components/index.ts"
-      ]
+      "@/*": ["./src/*"],
+      "@components": ["src/components/index.ts"],
+      "@pages": ["src/pages/index.ts"],
+      "@features": ["src/features/index.ts"]
     },
 
     /* Linting */
