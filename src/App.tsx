@@ -1,10 +1,9 @@
-import { Button } from './components'
+import { ContactForm } from './features/Contact/components/ContactForm/ContactForm'
 
 function App() {
   return (
-    <div className='bg-slate-900 flex justify-center align-center min-h-screen min-w-screen gap-10 p-10'>
-      <Button text='Teste' />
-      <Button text='Teste' variant='secondary' />
+    <div className='align-center min-w-screen flex min-h-screen justify-center gap-10 bg-slate-900 p-10'>
+      <ContactForm />
     </div>
   )
 }

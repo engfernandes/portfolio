@@ -1,8 +1,7 @@
-import { Button as HeadlessButton } from '@headlessui/react'
-import { HTMLAttributes } from 'react'
+import { ButtonHTMLAttributes } from 'react'
 import { tv } from 'tailwind-variants'
 
-interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string
   variant?: 'primary' | 'secondary' | 'tertiary'
   className?: string
@@ -27,11 +26,8 @@ const button = tv({
 
 export function Button({ text, variant, className, ...props }: ButtonProps) {
   return (
-    <HeadlessButton
-      className={button({ color: variant, className })}
-      {...props}
-    >
+    <button className={button({ color: variant, className })} {...props}>
       {text}
-    </HeadlessButton>
+    </button>
   )
 }
