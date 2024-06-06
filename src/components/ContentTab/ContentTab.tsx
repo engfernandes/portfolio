@@ -22,6 +22,10 @@ const childrenWrapper = tv({
   base: 'flex h-full w-full overflow-y-auto border-t border-slate-800',
 })
 
+const icon = tv({
+  base: 'cursor-pointer hover:[&>path]:fill-slate-300 hover:[&>path]:transition hover:[&>path]:duration-300',
+})
+
 export function ContentTab({
   tabTitle,
   children,
@@ -37,7 +41,7 @@ export function ContentTab({
           width='12'
           height='12'
           onClick={onClose}
-          className='cursor-pointer hover:[&>path]:fill-slate-300 hover:[&>path]:transition hover:[&>path]:duration-300'
+          className={icon()}
         />
       </div>
       <div className={childrenWrapper()}>{isOpen && children}</div>
