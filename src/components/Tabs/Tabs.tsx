@@ -1,13 +1,20 @@
 import { tv } from 'tailwind-variants'
 
 interface TabsProps {
+  isOpen: boolean
   activeTab: number
   tabs: { name: string; onClick?: () => void }[]
   className?: string
 }
 
 const tabsGroup = tv({
-  base: `flex flex-col items-center h-[55px] justify-start w-full animate-slide-down sm:animate-none sm:flex-row`,
+  base: `items-center h-[55px] justify-start w-full animate-slide-down sm:animate-none`,
+  variants: {
+    isOpen: {
+      true: 'flex flex-col sm:flex-row',
+      false: 'hidden',
+    },
+  },
 })
 
 const tabsStyle = tv({
@@ -29,9 +36,9 @@ const activeIndicator = tv({
   },
 })
 
-export function Tabs({ activeTab, tabs, className }: TabsProps) {
+export function Tabs({ isOpen, activeTab, tabs, className }: TabsProps) {
   return (
-    <div className={tabsGroup({ className: className })}>
+    <div className={tabsGroup({ isOpen, className: className })}>
       {tabs.map(({ name, onClick }, index) => (
         <div
           key={index}

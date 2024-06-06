@@ -2,7 +2,7 @@ import { tv } from 'tailwind-variants'
 import { Tabs } from '../Tabs'
 import { Typography } from '../Typography/Typography'
 import { Icon } from '../Icon'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const header = tv({
@@ -55,6 +55,12 @@ export function Header() {
     },
   ]
 
+  useEffect(() => {
+    if (window.screen.width < 768) {
+      setIsOpen(false)
+    }
+  }, [])
+
   return (
     <header className={header()}>
       <div className={nameDiv()}>
@@ -67,7 +73,14 @@ export function Header() {
           />
         </div>
       </div>
-      {isOpen && <Tabs activeTab={activeTab} tabs={tabs} className='w-full' />}
+      {isOpen && (
+        <Tabs
+          isOpen={isOpen}
+          activeTab={activeTab}
+          tabs={tabs}
+          className='w-full'
+        />
+      )}
     </header>
   )
 }
