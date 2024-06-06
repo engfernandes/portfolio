@@ -3,8 +3,9 @@ import { Button } from '../Button'
 import { Icon } from '../Icon'
 import { Typography } from '../Typography'
 import { icons } from '../Icon/Icons'
+import { ButtonHTMLAttributes } from 'react'
 
-interface ProjectCardProps {
+interface ProjectCardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: keyof typeof icons
   description: string
   image: string
@@ -32,6 +33,7 @@ export function ProjectCard({
   description,
   image,
   url,
+  ...props
 }: ProjectCardProps) {
   return (
     <article className={article()}>
@@ -56,7 +58,7 @@ export function ProjectCard({
         />
         <div className={buttonsDiv()}>
           <a href={url} target='_blank' rel='noreferrer'>
-            <Button variant='tertiary' text='view-project' />
+            <Button variant='tertiary' text='view-project' {...props} />
           </a>
         </div>
       </main>

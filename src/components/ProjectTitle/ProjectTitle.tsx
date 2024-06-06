@@ -19,7 +19,7 @@ export function ProjectTitle({ number, title }: ProjectTitleProps) {
         color='blue'
         className='text-base font-bold'
       />
-      <Typography text='/' variant='p' color='gray' />
+      <Typography text='//' variant='p' color='gray' />
       <Typography text={title} variant='p' color='gray' />
     </div>
   )
