@@ -6,24 +6,23 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const header = tv({
-  base: 'absolute flex flex-col top-0 left-0 w-full h-[55px] bg-slate-900 border border-slate-800 rounded-t-lg sm:flex-row sm:h-[55px]',
+  base: 'absolute flex flex-col top-0 left-0 w-full h-[55px] bg-slate-900 rounded-t-lg sm:flex-row',
 })
 
 const nameDiv = tv({
-  base: 'flex justify-between items-center space-x-2 w-full h-full p-[18px] text-nowrap sm:w-fit',
+  base: 'flex justify-between items-center space-x-2 w-full h-full px-[18px] text-nowrap sm:w-[265px]',
 })
 
 const iconDiv = tv({
-  base: 'cursor-pointer transition duration-300',
+  base: 'block cursor-pointer transition duration-300 sm:hidden',
 })
 
 const closeButton = tv({
-  base: 'sm:invisible transition duration-300',
+  base: 'block transition duration-300 sm:hidden ',
 })
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(true)
-  const [activeTab, setActiveTab] = useState(0)
 
   const navigate = useNavigate()
 
@@ -31,27 +30,30 @@ export function Header() {
     setIsOpen(!isOpen)
   }
 
-  const handleClickTab = (index: number, link: string) => {
-    setActiveTab(index)
+  const handleClickTab = (link: string) => {
     navigate(`${link}`)
   }
 
   const tabs = [
     {
       name: '_hello',
-      onClick: () => handleClickTab(0, ''),
+      link: '/',
+      onClick: () => handleClickTab('/'),
     },
     {
       name: '_about-me',
-      onClick: () => handleClickTab(1, 'about-me'),
+      link: '/about-me',
+      onClick: () => handleClickTab('/about-me'),
     },
     {
       name: '_projects',
-      onClick: () => handleClickTab(2, 'projects'),
+      link: '/projects',
+      onClick: () => handleClickTab('/projects'),
     },
     {
       name: '_contact-me',
-      onClick: () => handleClickTab(3, 'contact-me'),
+      link: '/contact-me',
+      onClick: () => handleClickTab('/contact-me'),
     },
   ]
 
@@ -73,14 +75,9 @@ export function Header() {
           />
         </div>
       </div>
-      {isOpen && (
-        <Tabs
-          isOpen={isOpen}
-          activeTab={activeTab}
-          tabs={tabs}
-          className='w-full'
-        />
-      )}
+      <div>
+        {isOpen && <Tabs isOpen={isOpen} tabs={tabs} className='w-full' />}
+      </div>
     </header>
   )
 }

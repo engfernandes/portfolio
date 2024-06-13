@@ -3,7 +3,7 @@ import { Disclosure } from '../Disclosure'
 import { DisclosureFolder } from '../DisclosureFolder'
 import { icons } from '../Icon/Icons'
 
-interface SideBarProps {
+export interface SideBarProps {
   disclosures: {
     buttonText: string
     disclosureFolders?: {
@@ -22,32 +22,37 @@ interface SideBarProps {
 
 export function SideBar({ disclosures }: SideBarProps) {
   return (
-    <aside className='flex w-full flex-col border border-b-0 border-slate-800 sm:w-80'>
-      {disclosures.map(({ buttonText, disclosureFolders, checkboxes }) => (
-        <Disclosure key={buttonText} buttonText={buttonText}>
-          {disclosureFolders &&
-            disclosureFolders.map(({ buttonText, folderColor, items }) => (
-              <DisclosureFolder
-                key={buttonText}
-                buttonText={buttonText}
-                folderColor={folderColor}
-                items={items}
-              />
-            ))}
-          {checkboxes && (
-            <div className='flex flex-col gap-4'>
-              {checkboxes.map(({ checked, label, icon, onClick }) => (
-                <Checkbox
-                  checked={checked}
-                  label={label}
-                  icon={icon}
-                  onClick={onClick}
-                />
-              ))}
-            </div>
-          )}
-        </Disclosure>
-      ))}
+    <aside className='absolute hidden sm:left-0 sm:top-[55px] sm:flex sm:h-full sm:w-[265px] sm:flex-col sm:border-t sm:border-slate-800'>
+      {disclosures.map(
+        ({ buttonText, disclosureFolders, checkboxes }, index) => (
+          <Disclosure key={index} buttonText={buttonText}>
+            {disclosureFolders &&
+              disclosureFolders.map(
+                ({ buttonText, folderColor, items }, index) => (
+                  <DisclosureFolder
+                    key={index}
+                    buttonText={buttonText}
+                    folderColor={folderColor}
+                    items={items}
+                  />
+                ),
+              )}
+            {checkboxes && (
+              <div className='flex flex-col gap-4'>
+                {checkboxes.map(({ checked, label, icon, onClick }, index) => (
+                  <Checkbox
+                    key={index}
+                    checked={checked}
+                    label={label}
+                    icon={icon}
+                    onClick={onClick}
+                  />
+                ))}
+              </div>
+            )}
+          </Disclosure>
+        ),
+      )}
     </aside>
   )
 }

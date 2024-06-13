@@ -1,14 +1,14 @@
+import { useLocation } from 'react-router-dom'
 import { tv } from 'tailwind-variants'
 
 interface TabsProps {
   isOpen: boolean
-  activeTab: number
-  tabs: { name: string; onClick?: () => void }[]
+  tabs: { name: string; link: string; onClick?: () => void }[]
   className?: string
 }
 
 const tabsGroup = tv({
-  base: `items-center h-[55px] justify-start w-full animate-slide-down sm:animate-none`,
+  base: `absolute z-10 items-center h-[55px] justify-start w-full animate-slide-down sm:animate-none`,
   variants: {
     isOpen: {
       true: 'flex flex-col sm:flex-row',
@@ -18,7 +18,7 @@ const tabsGroup = tv({
 })
 
 const tabsStyle = tv({
-  base: 'relative flex items-center p-[18px] w-full h-full cursor-pointer text-nowrap text-base text-white border border-slate-800 bg-slate-900 transition duration-200 hover:text-white sm:w-fit sm:text-slate-500 sm:px-8 sm:py-0',
+  base: 'relative flex items-center px-[18px] w-full h-full cursor-pointer text-nowrap text-base text-white border-b border-slate-800 bg-slate-900 transition duration-200 first:border-l hover:text-white sm:w-fit sm:px-8 sm:text-slate-500 sm:border-r sm:border-b-0',
   variants: {
     active: {
       true: 'sm:text-white',
@@ -36,19 +36,21 @@ const activeIndicator = tv({
   },
 })
 
-export function Tabs({ isOpen, activeTab, tabs, className }: TabsProps) {
+export function Tabs({ isOpen, tabs, className }: TabsProps) {
+  const location = useLocation()
+
   return (
     <div className={tabsGroup({ isOpen, className: className })}>
-      {tabs.map(({ name, onClick }, index) => (
+      {tabs.map(({ name, link, onClick }, index) => (
         <div
           key={index}
           className={tabsStyle({
-            active: index === activeTab,
+            active: link === location.pathname,
           })}
           onClick={onClick}
         >
           <p>{name}</p>
-          {index === activeTab && (
+          {link === location.pathname && (
             <div
               className={activeIndicator({
                 animation: 'slide-from-left',

@@ -11,15 +11,15 @@ interface ContentTabProps {
 }
 
 const mainDiv = tv({
-  base: 'flex h-full w-full flex-col items-start border border-slate-800',
+  base: 'flex h-full w-full flex-col items-start',
 })
 
 const tabWrapper = tv({
-  base: 'hidden sm:flex sm:w-52 sm:items-center sm:justify-between sm:border-r sm:border-slate-800 sm:px-4 sm:py-3',
+  base: 'hidden sm:flex sm:w-52 sm:items-center sm:justify-between sm:px-4 sm:py-1.5 sm:border-r border-slate-800',
 })
 
 const childrenWrapper = tv({
-  base: 'flex h-full w-full overflow-y-auto border-t border-slate-800',
+  base: 'flex h-full p-[18px] w-full sm:p-16 sm:border-t sm:border-slate-800',
 })
 
 const icon = tv({
