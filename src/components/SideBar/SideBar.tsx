@@ -22,7 +22,7 @@ export interface SideBarProps {
 
 export function SideBar({ disclosures }: SideBarProps) {
   return (
-    <aside className='absolute hidden sm:left-0 sm:top-[55px] sm:flex sm:h-full sm:w-[265px] sm:flex-col sm:border-t sm:border-slate-800'>
+    <aside className='hidden sm:flex sm:h-full sm:w-[265px] sm:flex-col'>
       {disclosures.map(
         ({ buttonText, disclosureFolders, checkboxes }, index) => (
           <Disclosure key={index} buttonText={buttonText}>

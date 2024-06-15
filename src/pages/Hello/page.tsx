@@ -3,7 +3,7 @@ import { HighlightText } from '@/features'
 
 export function HelloPage() {
   return (
-    <Layout>
+    <Layout variant='flex'>
       <HighlightText />
     </Layout>
   )

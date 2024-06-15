@@ -28,8 +28,8 @@ export function ProjectsPage() {
   }
 
   return (
-    <Layout sideBarProps={disclosures}>
-      <ContentTab tabTitle='projects'>
+    <Layout sideBarProps={disclosures} variant='grid'>
+      <ContentTab tabTitle='projects' withBorder>
         <ProjectsList />
       </ContentTab>
     </Layout>

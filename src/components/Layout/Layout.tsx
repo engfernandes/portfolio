@@ -7,6 +7,7 @@ import { SideBar, SideBarProps } from '../SideBar'
 interface LayoutProps {
   children: ReactNode
   sideBarProps?: SideBarProps
+  variant: 'grid' | 'flex'
 }
 
 const background = tv({
@@ -14,23 +15,29 @@ const background = tv({
 })
 
 const overlay = tv({
-  base: 'relative flex h-full w-full flex-col justify-center rounded-lg border border-slate-800 bg-slate-900',
+  base: 'grid grid-cols-1 grid-rows-[auto_1fr_auto] h-full w-full place-items-start rounded-lg border border-slate-800 bg-slate-900',
 })
 
 const contentWrapper = tv({
-  base: 'mb-[55px] mt-[55px] flex h-full w-full items-center justify-center overflow-y-auto',
+  base: 'h-full w-full overflow-hidden',
+  variants: {
+    display: {
+      grid: 'grid grid-cols-1 sm:grid sm:grid-cols-[auto_1fr] h-full',
+      flex: 'flex items-center justify-center',
+    },
+  },
 })
 
 const childrenWrapper = tv({
-  base: 'flex h-full w-full items-center justify-center border-b-0 border-t border-slate-800 sm:ml-[265px] sm:border-l',
+  base: 'flex w-full h-full items-center justify-center overflow-y-auto sm:p-[18px] sm:p-0',
 })
 
-export function Layout({ children, sideBarProps }: LayoutProps) {
+export function Layout({ children, sideBarProps, variant }: LayoutProps) {
   return (
     <div className={background()}>
       <div className={overlay()}>
         <Header />
-        <div className={contentWrapper()}>
+        <div className={contentWrapper({ display: variant })}>
           {sideBarProps && <SideBar {...sideBarProps} />}
           <div className={childrenWrapper()}>{children}</div>
         </div>

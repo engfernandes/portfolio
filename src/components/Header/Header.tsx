@@ -6,11 +6,11 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const header = tv({
-  base: 'absolute flex flex-col top-0 left-0 w-full h-[55px] bg-slate-900 rounded-t-lg sm:flex-row',
+  base: 'relative flex flex-col w-full h-[55px] bg-slate-900 rounded-t-lg sm:grid sm:grid-cols-[auto_1fr]',
 })
 
 const nameDiv = tv({
-  base: 'flex justify-between items-center space-x-2 w-full h-full px-[18px] text-nowrap sm:w-[265px]',
+  base: 'flex justify-between items-center space-x-2 w-full h-full px-[18px] text-nowrap border-b border-slate-800 sm:w-[265px]',
 })
 
 const iconDiv = tv({

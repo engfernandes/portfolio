@@ -8,10 +8,16 @@ interface ContentTabProps {
   children: ReactNode
   isOpen?: boolean
   onClose?: () => void
+  withBorder?: boolean
 }
 
 const mainDiv = tv({
-  base: 'flex h-full w-full flex-col items-start',
+  base: 'flex w-full flex-col h-full',
+  variants: {
+    withBorder: {
+      true: 'sm:border-l sm:border-slate-800',
+    },
+  },
 })
 
 const tabWrapper = tv({
@@ -19,7 +25,7 @@ const tabWrapper = tv({
 })
 
 const childrenWrapper = tv({
-  base: 'flex h-full p-[18px] w-full sm:p-16 sm:border-t sm:border-slate-800',
+  base: 'flex-grow w-full p-[18px] sm:p-16 sm:border-t sm:border-slate-800 overflow-y-auto',
 })
 
 const icon = tv({
@@ -31,9 +37,10 @@ export function ContentTab({
   children,
   isOpen = true,
   onClose,
+  withBorder = false,
 }: ContentTabProps) {
   return (
-    <div className={mainDiv()}>
+    <div className={mainDiv({ withBorder: withBorder })}>
       <div className={tabWrapper()}>
         <Typography text={tabTitle} variant='p' color='gray' />
         <Icon

@@ -8,7 +8,7 @@ interface TabsProps {
 }
 
 const tabsGroup = tv({
-  base: `absolute z-10 items-center h-[55px] justify-start w-full animate-slide-down sm:animate-none`,
+  base: `absolute z-10 w-full h-[55px] justify-start items-center border-b border-slate-800 animate-slide-down sm:static sm:animate-none`,
   variants: {
     isOpen: {
       true: 'flex flex-col sm:flex-row',
@@ -18,7 +18,7 @@ const tabsGroup = tv({
 })
 
 const tabsStyle = tv({
-  base: 'relative flex items-center px-[18px] w-full h-full cursor-pointer text-nowrap text-base text-white border-b border-slate-800 bg-slate-900 transition duration-200 first:border-l hover:text-white sm:w-fit sm:px-8 sm:text-slate-500 sm:border-r sm:border-b-0',
+  base: 'relative flex w-full h-full items-center p-[18px] cursor-pointer text-nowrap text-base text-white border-b border-slate-800 bg-slate-900 transition duration-200 first:border-l hover:text-white sm:w-fit sm:px-8 sm:py-0 sm:text-slate-500 sm:border-r sm:border-b-0',
   variants: {
     active: {
       true: 'sm:text-white',
