@@ -5,25 +5,28 @@ import { tv } from 'tailwind-variants'
 interface CodeBlockProps {
   language: string
   children: string
+  className?: string
 }
 
 const codeBlockDiv = tv({
-  base: 'scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-slate-950 flex h-fit max-h-[215px] max-w-[664px] items-center justify-center overflow-y-auto rounded-[15px] border border-slate-800 bg-slate-950',
+  base: 'flex h-fit max-h-[215px] max-w-[664px] items-center justify-center overflow-none rounded-[15px] border border-slate-800 bg-slate-950 wrap-text-into-div',
 })
 
-export function CodeBlock({ language, children }: CodeBlockProps) {
+export function CodeBlock({ language, children, className }: CodeBlockProps) {
   return (
-    <div className={codeBlockDiv()}>
+    <div className={codeBlockDiv({ className: className })}>
       <SyntaxHighlighter
         language={language}
         style={nightOwl}
         PreTag='div'
         customStyle={{
           background: 'transparent',
-          padding: 0,
+          padding: 16,
           margin: 0,
-          width: 'fit-content',
-          overflow: 'hidden',
+          overflowX: 'hidden',
+          maxWidth: '600px',
+          overflowY: 'auto',
+          maxHeight: '500px',
         }}
       >
         {children}

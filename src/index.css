@@ -20,3 +20,12 @@ body {
     -webkit-line-clamp: 3;
   }
 }
+
+.wrap-text-into-div {
+  div {
+    span {
+      text-wrap: wrap;
+      word-break: break-all;
+    }
+  }
+}

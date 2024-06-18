@@ -8,7 +8,10 @@ interface ContentTabProps {
   children: ReactNode
   isOpen?: boolean
   onClose?: () => void
-  withBorder?: boolean
+  styleProps?: {
+    withBorder?: boolean
+    layout?: 'base' | 'twoCols'
+  }
 }
 
 const mainDiv = tv({
@@ -25,7 +28,17 @@ const tabWrapper = tv({
 })
 
 const childrenWrapper = tv({
-  base: 'flex-grow w-full p-[18px] sm:p-16 sm:border-t sm:border-slate-800 overflow-y-auto',
+  base: 'w-full p-[18px] sm:p-16 sm:border-t sm:border-slate-800 overflow-y-auto',
+  variants: {
+    layout: {
+      base: 'flex-grow',
+      twoCols:
+        'flex-grow sm:grid sm:grid-cols-[1fr_1fr] sm:grid-rows-auto xl:gap-32 sm:h-full sm:items-center',
+    },
+  },
+  defaultVariants: {
+    layout: 'base',
+  },
 })
 
 const icon = tv({
@@ -37,10 +50,10 @@ export function ContentTab({
   children,
   isOpen = true,
   onClose,
-  withBorder = false,
+  styleProps,
 }: ContentTabProps) {
   return (
-    <div className={mainDiv({ withBorder: withBorder })}>
+    <div className={mainDiv({ withBorder: styleProps?.withBorder })}>
       <div className={tabWrapper()}>
         <Typography text={tabTitle} variant='p' color='gray' />
         <Icon
@@ -51,7 +64,9 @@ export function ContentTab({
           className={icon()}
         />
       </div>
-      <div className={childrenWrapper()}>{isOpen && children}</div>
+      <div className={childrenWrapper({ layout: styleProps?.layout })}>
+        {isOpen && children}
+      </div>
     </div>
   )
 }

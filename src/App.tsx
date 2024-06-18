@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { HelloPage, ProjectsPage } from '@pages'
+import { ContactMePage, HelloPage, ProjectsPage } from '@pages'
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HelloPage />} />
         <Route path='/projects' element={<ProjectsPage />} />
+        <Route path='/contact-me' element={<ContactMePage />} />
       </Routes>
     </BrowserRouter>
   )
