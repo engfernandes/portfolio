@@ -30,18 +30,18 @@ export function ContactForm() {
 
   const codeBlockMessage = () => {
     return `
-      const button = document.querySelector('#sendBtn');
+const button = document.querySelector('#sendBtn');
 
-      const message = {
-        name: "${watch('name') || ''}",
-        email: "${watch('email') || ''}",
-        message: "${watch('message') || ''}",
-        date: "${format(new Date(), 'yyyy-MM-dd')}",
-      }
+const message = {
+  name: "${watch('name') || ''}",
+  email: "${watch('email') || ''}",
+  message: "${watch('message') || ''}",
+  date: "${format(new Date(), 'yyyy-MM-dd')}",
+}
 
-      button.addEventListener('click', () => {
-        form.send(message);
-      })
+button.addEventListener('click', () => {
+  form.send(message);
+})
     `
   }
 
@@ -121,7 +121,7 @@ export function ContactForm() {
       <div className='hidden lg:block'>
         <CodeBlock
           language='javascript'
-          className='border-0 bg-slate-900 text-xl'
+          className='border-0 bg-slate-900 text-lg'
           children={codeBlockMessage()}
         />
       </div>

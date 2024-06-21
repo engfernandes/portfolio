@@ -14,7 +14,7 @@ interface ProjectsListProps {
 }
 
 const main = tv({
-  base: 'flex flex-col w-full pb-8 items-center justify-start gap-6 sm:flex-row sm:flex-wrap sm:gap-10',
+  base: 'flex flex-col w-full pb-8 justify-start gap-8 sm:flex-row sm:flex-wrap sm:gap-10',
 })
 
 const div = tv({

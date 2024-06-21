@@ -28,12 +28,12 @@ const tabWrapper = tv({
 })
 
 const childrenWrapper = tv({
-  base: 'w-full p-[18px] sm:p-16 sm:border-t sm:border-slate-800 overflow-y-auto',
+  base: 'w-full sm:p-16 sm:border-t sm:border-slate-800 overflow-y-auto',
   variants: {
     layout: {
       base: 'flex-grow',
       twoCols:
-        'flex-grow sm:grid sm:grid-cols-[1fr_1fr] sm:grid-rows-auto xl:gap-32 sm:h-full sm:items-center',
+        'flex-grow sm:grid sm:grid-cols-[1fr_1fr] sm:grid-rows-auto xl:gap-20 sm:h-full sm:items-center',
     },
   },
   defaultVariants: {

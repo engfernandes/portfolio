@@ -29,7 +29,7 @@ const contentWrapper = tv({
 })
 
 const childrenWrapper = tv({
-  base: 'flex w-full h-full items-center justify-center overflow-y-auto sm:p-[18px] sm:p-0',
+  base: 'flex w-full h-full p-[18px] items-center justify-center overflow-y-auto sm:p-0',
 })
 
 export function Layout({ children, sideBarProps, variant }: LayoutProps) {

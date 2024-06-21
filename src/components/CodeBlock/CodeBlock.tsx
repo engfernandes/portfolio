@@ -9,7 +9,7 @@ interface CodeBlockProps {
 }
 
 const codeBlockDiv = tv({
-  base: 'flex h-fit max-h-[215px] max-w-[664px] items-center justify-center overflow-none rounded-[15px] border border-slate-800 bg-slate-950 wrap-text-into-div',
+  base: 'flex h-fit max-h-[215px] max-w-[664px] items-center justify-center overflow-none rounded-[15px] border border-slate-800 bg-slate-950',
 })
 
 export function CodeBlock({ language, children, className }: CodeBlockProps) {
@@ -23,8 +23,8 @@ export function CodeBlock({ language, children, className }: CodeBlockProps) {
           background: 'transparent',
           padding: 16,
           margin: 0,
-          overflowX: 'hidden',
-          maxWidth: '600px',
+          overflowX: 'auto',
+          maxWidth: '400px',
           overflowY: 'auto',
           maxHeight: '500px',
         }}
