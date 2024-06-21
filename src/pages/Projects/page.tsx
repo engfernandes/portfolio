@@ -29,7 +29,7 @@ export function ProjectsPage() {
 
   return (
     <Layout sideBarProps={disclosures} variant='grid'>
-      <ContentTab tabTitle='projects' withBorder>
+      <ContentTab tabTitle='projects' styleProps={{ withBorder: true }}>
         <ProjectsList />
       </ContentTab>
     </Layout>

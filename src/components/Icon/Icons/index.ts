@@ -21,6 +21,7 @@ import { Checkmark } from './Checkmark'
 import { SimpleReactLogo } from './SimpleReactLogo'
 import { SimpleAngularLogo } from './SimpleAngularLogo'
 import { SimpleVueLogo } from './SimpleVueLogo'
+import { LinkInNewTab } from './LinkInNewTab'
 
 export interface IconProps extends HTMLAttributes<SVGElement> {
   width?: string
@@ -51,4 +52,5 @@ export const icons = {
   simpleReactLogo: SimpleReactLogo,
   simpleAngularLogo: SimpleAngularLogo,
   simpleVueLogo: SimpleVueLogo,
+  linkInNewTab: LinkInNewTab,
 }

@@ -5,22 +5,33 @@ export function ContactMePage() {
   const disclosures: SideBarProps = {
     disclosures: [
       {
-        buttonText: 'projects',
-        checkboxes: [
+        buttonText: 'contacts',
+        items: [
           {
-            checked: true,
-            label: 'React',
-            icon: 'simpleReactLogo',
+            icon: 'email',
+            text: 'gabriel.fernandes.06@outlook.com',
+            onClick: () => {
+              navigator.clipboard.writeText('gabriel.fernandes.06@outlook.com')
+            },
           },
           {
-            checked: true,
-            label: 'Angular',
-            icon: 'simpleAngularLogo',
+            icon: 'phone',
+            text: '+55 (11)97741-5624',
+            onClick: () => {
+              navigator.clipboard.writeText('+55 (11)97741-5624')
+            },
           },
+        ],
+      },
+      {
+        buttonText: 'find-me-also-in',
+        items: [
           {
-            checked: true,
-            label: 'Vue',
-            icon: 'simpleVueLogo',
+            icon: 'linkInNewTab',
+            text: 'Instagram',
+            onClick: () => {
+              window.open('https://instagram.com/limaagabrielf')
+            },
           },
         ],
       },
