@@ -21,14 +21,14 @@ const disclosurePanel = tv({
 })
 
 export function Disclosure({ buttonText, children }: DisclosureProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
 
   const handleClickOpen = () => {
     setIsOpen(!isOpen)
   }
 
   return (
-    <HeadlessDisclosure>
+    <HeadlessDisclosure defaultOpen>
       <DisclosureButton
         className={disclosureButton()}
         onClick={handleClickOpen}

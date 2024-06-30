@@ -1,0 +1,80 @@
+export const experience = `## Experiences
+
+### Full Stack Developer
+- **Company:** Loopt
+- **Duration:** November, 2023 - Present
+- **Responsibilities:**
+  - Planning, documentation and development of high-performance web applications integrated with machine learning applications.
+  - Review the codes used in web applications and integrations made by other teammates.
+  - Monitoring, creating pipelines, creating lambdas and using several other AWS features.
+- **Technologies:**
+  - General
+    - Typescript
+    - JavaScript
+    - Python
+    - SQL
+    - NX
+    - AWS
+  - Front End
+    - React
+    - Next.js
+    - Redux
+    - Zustand
+    - Tailwind
+    - Styled Components
+    - Chakra UI
+  - Back End
+    - Node.js
+    - Nest.js
+    - Class Validator
+    - Class Transformer
+    - TypeORM
+    - Bull
+
+### Front End Developer
+- **Company:** Loopt
+- **Duration:** August, 2023 - November, 2023
+- **Responsibilities:**
+  - Planning, documentation and development of high-performance front end applications.
+  - Review the codes used in web applications and integrations made by other teammates.
+  - Monitoring, creating pipelines, creating lambdas and using several other AWS features.
+- **Technologies:**
+  - General
+    - Typescript
+    - JavaScript
+    - Python
+    - SQL
+    - NX
+    - AWS
+  - Front End
+    - React
+    - Next.js
+    - Redux
+    - Zustand
+    - Tailwind
+    - Styled Components
+    - Chakra UI
+
+### Front End Developer
+- **Company:** Tembici
+- **Duration:** October, 2022 - August, 2023
+- **Responsibilities:**
+  - Planning, documentation and development of high-performance front end applications.
+  - Monitoring, creating pipelines, creating Google Cloud Functions and using several other GCP features.
+- **Technologies:**
+  - General
+    - Typescript
+    - JavaScript
+    - Python
+    - SQL
+    - Google Cloud Platform
+  - Front End
+    - React
+    - Next.js
+    - Vue.js
+    - Redux
+    - Zustand
+    - Tailwind
+    - Styled Components
+    - Chakra UI
+    - Material UI`

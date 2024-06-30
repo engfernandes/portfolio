@@ -1,6 +1,6 @@
 import { Checkbox } from '../Checkbox'
 import { Disclosure } from '../Disclosure'
-import { DisclosureFolder } from '../DisclosureFolder'
+import { DisclosureFolder, DisclosureFolderProps } from '../DisclosureFolder'
 import { Icon } from '../Icon'
 import { icons } from '../Icon/Icons'
 import { Typography } from '../Typography'
@@ -8,11 +8,7 @@ import { Typography } from '../Typography'
 export interface SideBarProps {
   disclosures: {
     buttonText: string
-    disclosureFolders?: {
-      buttonText: string
-      folderColor: 'red' | 'green' | 'blue'
-      items: { icon: keyof typeof icons; title: string; onClick?: () => void }[]
-    }[]
+    disclosureFolders?: DisclosureFolderProps[]
     checkboxes?: {
       checked: boolean
       label: string
@@ -31,11 +27,12 @@ export function SideBar({ disclosures }: SideBarProps) {
           <Disclosure key={index} buttonText={buttonText}>
             {disclosureFolders &&
               disclosureFolders.map(
-                ({ buttonText, folderColor, items }, index) => (
+                ({ buttonText, folderColor, items, defaultOpen }, index) => (
                   <DisclosureFolder
                     key={index}
                     buttonText={buttonText}
                     folderColor={folderColor}
+                    defaultOpen={defaultOpen}
                     items={items}
                   />
                 ),

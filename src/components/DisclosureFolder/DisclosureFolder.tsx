@@ -8,10 +8,11 @@ import { tv } from 'tailwind-variants'
 import { Icon } from '../Icon'
 import { icons } from '../Icon/Icons'
 
-interface DisclosureFolderProps {
-  folderColor: 'red' | 'green' | 'blue'
+export interface DisclosureFolderProps {
+  folderColor: 'red' | 'green' | 'blue' | 'yellow'
   buttonText: string
   items: { icon: keyof typeof icons; title: string; onClick?: () => void }[]
+  defaultOpen?: boolean
 }
 
 const disclosureButton = tv({
@@ -43,38 +44,61 @@ const folderIcon = tv({
       red: '[&>path]:fill-rose-400',
       green: '[&>path]:fill-emerald-400',
       blue: '[&>path]:fill-indigo-800',
+      yellow: '[&>path]:fill-amber-400',
     },
   },
+})
+
+const disclosureItem = tv({
+  base: 'flex cursor-pointer gap-2',
+})
+
+const disclosureItemText = tv({
+  base: 'text-slate-500',
 })
 
 export function DisclosureFolder({
   folderColor,
   buttonText,
   items,
+  defaultOpen = false,
 }: DisclosureFolderProps) {
-  const [isActive, setIsActive] = useState(false)
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+  const [activeItem, setActiveItem] = useState(0)
 
   const handleClick = () => {
-    setIsActive(!isActive)
+    setIsOpen(!isOpen)
+  }
+
+  const handleClickItem = (index: number, onClick?: () => void) => {
+    setActiveItem(index)
+
+    if (onClick) {
+      onClick()
+    }
   }
 
   return (
-    <HeadlessDisclosure>
+    <HeadlessDisclosure defaultOpen={defaultOpen}>
       <DisclosureButton onClick={handleClick} className={disclosureButton()}>
         <Icon
-          name={isActive ? 'caretDown' : 'caretRight'}
+          name={isOpen ? 'caretDown' : 'caretRight'}
           className='[&>path]:fill-slate-500'
         />
-        <div className={disclosureButtonFolder({ active: isActive })}>
+        <div className={disclosureButtonFolder({ active: isOpen })}>
           <Icon name='folder' className={folderIcon({ color: folderColor })} />
           <p>{buttonText}</p>
         </div>
       </DisclosureButton>
       <DisclosurePanel className={disclosurePanel()}>
-        {items.map(({ icon, title, onClick }) => (
-          <div className='flex gap-2' onClick={onClick}>
-            <Icon name={icon} />
-            <p className='text-slate-500'>{title}</p>
+        {items.map(({ icon, title, onClick }, index) => (
+          <div
+            className={disclosureItem()}
+            onClick={() => handleClickItem(index, onClick)}
+            key={index}
+          >
+            <Icon name={icon} color={activeItem === index ? 'white' : 'gray'} />
+            <p className={disclosureItemText()}>{title}</p>
           </div>
         ))}
       </DisclosurePanel>

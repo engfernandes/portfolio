@@ -1,0 +1,5 @@
+export * from './disclosures/disclosures'
+export * from './texts/bio'
+export * from './texts/experience'
+export * from './texts/interests'
+export * from './texts/university'
