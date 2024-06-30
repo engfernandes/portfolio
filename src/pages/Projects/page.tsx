@@ -1,5 +1,5 @@
-import { Layout, ContentTab, SideBarProps } from '@/components'
-import { ProjectsList } from '@/features'
+import { Layout, ContentTab, SideBarProps, Typography } from '@/components'
+// import { ProjectsList } from '@/features'
 
 export function ProjectsPage() {
   const disclosures: SideBarProps = {
@@ -9,18 +9,8 @@ export function ProjectsPage() {
         checkboxes: [
           {
             checked: true,
-            label: 'React',
-            icon: 'simpleReactLogo',
-          },
-          {
-            checked: true,
-            label: 'Angular',
-            icon: 'simpleAngularLogo',
-          },
-          {
-            checked: true,
-            label: 'Vue',
-            icon: 'simpleVueLogo',
+            label: 'Coming Soon...',
+            icon: 'markdown',
           },
         ],
       },
@@ -30,7 +20,8 @@ export function ProjectsPage() {
   return (
     <Layout sideBarProps={disclosures} variant='grid'>
       <ContentTab tabTitle='projects' styleProps={{ withBorder: true }}>
-        <ProjectsList />
+        {/* <ProjectsList /> */}
+        <Typography text='Coming Soon...' color='white' variant='h3' />
       </ContentTab>
     </Layout>
   )
